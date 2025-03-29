@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: food-server
+  template:
+    metadata:
+      labels:
+        app: food-server
+    spec:
+      containers:
+      - name: food-server
+        image: carlosmestredp/food-server:0.2  
+        ports:
+        - containerPort: 8080
